@@ -1,0 +1,20 @@
+body{
+    background-color: lightcyan;
+}
+
+h1  {
+    color: grey;
+    font-family: verdana;
+}
+
+p   {
+    color: lightslategrey;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+ul  {
+    list-style-type: square;
+    color: lightseagreen;
+    font-family: 'Courier New', Courier, monospace;
+}
+
