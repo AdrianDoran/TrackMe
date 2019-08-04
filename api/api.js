@@ -10,7 +10,7 @@ app.use(bodyParser.json())
 
 const port = process.env.PORT || 5000;
 
-mongoose.connect('mongodb+srv://Adoran:Angel3434@sit209-gsvs7.mongodb.net/test', { useNewUrlParser : true });
+mongoose.connect(process.env.MONGO_URL, { useNewUrlParser : true });
 
 /**
  * @api {use} /api/api.js Headers
