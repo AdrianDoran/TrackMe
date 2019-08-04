@@ -1,0 +1,10 @@
+{
+    "alias": "<your-student-id>-sit-209",
+    "name": "<your-student-id>-sit-209",
+
+    "build": {
+        "env": {
+            "MONGO_URL": "@mongo_url"
+        }
+    }
+}
