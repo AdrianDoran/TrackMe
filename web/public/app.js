@@ -1,7 +1,7 @@
 $('#navbar').load('navbar.html');
 $('#footer').load('footer.html');
 
-const API_URL = 'http://localhost:5000/api';
+const API_URL = 'https://217195412-sit-209.now.sh/api';
 const currentUser = localStorage.getItem('user');
 
 if (currentUser) {
@@ -39,7 +39,7 @@ if (currentUser) {
     }
 else {
     const path = window.location.pathname;
-    if (path !== '/login') {
+    if (path !== '/login' && path !== '/registration') {
         location.href = '/login';
     }
 }

@@ -1,10 +1,74 @@
 {
-    "alias": "<your-student-id>-sit-209",
-    "name": "<your-student-id>-sit-209",
-
-    "build": {
-        "env": {
-            "MONGO_URL": "@mongo_url"
+    "version": 2,
+    "alias": "217195412-sit-209",
+    "name": "217195412-sit-209",
+    "env": {
+        "MONGO_URL": "@mongo_url"
+    },
+    "builds": [
+        {
+            "src": "api.js",
+            "use": "@now/node"
+        },
+        { 
+            "src": "public/generated-docs/**",
+            "use": "@now/static"
         }
-    }
+    ],
+    "routes": [
+        {
+            "src": "/docs",
+            "dest": "api.js",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
+            "src": "/api/devices/([^/]+)/device-history",
+            "dest": "api.js",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
+            "src": "/api/users/([^/]+)/devices",
+            "dest": "api.js",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
+            "src": "/api/send-command",
+            "dest": "api.js",
+            "methods": [
+                "POST"
+            ]
+        },
+        {
+            "src": "/api/authenticate",
+            "dest": "api.js",
+            "methods": [
+                "POST"
+            ]
+        },
+        {
+            "src": "/api/registration",
+            "dest": "api.js",
+            "methods": [
+                "POST"
+            ]
+        },
+        {
+            "src": "/api/devices",
+            "dest": "api.js",
+            "methods": [
+                "POST",
+                "GET"
+            ]
+        },
+        {
+            "src": "/(.*)",
+            "dest": "public/generated-docs/$1"
+        }
+    ]
 }

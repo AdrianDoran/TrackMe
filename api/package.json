@@ -1,13 +1,21 @@
 {
   "name": "api",
   "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/AdrianDoran/TrackMe"
+  },
+  "engines": {
+    "node": "^8 || ^10"
+  },
   "description": "api_server",
   "main": "api.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon -r dotenv/config api.js",
     "doc": "apidoc -o public/generated-docs/ -e node_modules/",
-    "build": "my-framework build --output public"
+    "build": "my-framework build --output public",
+    "deploy": "now rm <your-student-id>-sit-209 -y && now -p && now alias"
   },
   "keywords": [
     "api",
@@ -23,6 +31,7 @@
   },
   "devDependencies": {
     "apidoc": "^0.17.7",
-    "nodemon": "^1.19.1"
+    "nodemon": "^1.19.1",
+    "now": "^15.8.7"
   }
 }
