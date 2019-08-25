@@ -223,11 +223,11 @@ app.post('/api/registration', (req, res) => {
     })
 })
 
-/**
+/** OLD CODE
  * @api {post} /api/send-command Send a Command
  * @apiGroup Command
  * @apiDescription Sends a command to Console
  */
-app.post('/api/send-command', (req, res) => {
-    console.log(req.body);
-});
+// app.post('/api/send-command', (req, res) => {
+//     console.log(req.body);
+// });

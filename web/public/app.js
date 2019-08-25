@@ -2,6 +2,7 @@ $('#navbar').load('navbar.html');
 $('#footer').load('footer.html');
 
 const API_URL = 'https://217195412-sit-209.now.sh/api';
+const MQTT_URL = 'http://localhost:5001';
 const currentUser = localStorage.getItem('user');
 
 if (currentUser) {
@@ -38,10 +39,10 @@ if (currentUser) {
         });
     }
 else {
-    const path = window.location.pathname;
-    if (path !== '/login' && path !== '/registration') {
-        location.href = '/login';
-    }
+    // const path = window.location.pathname;
+    // if (path !== '/login' && path !== '/registration') {
+    //     location.href = '/login';
+    // }
 }
 
 const devices = JSON.parse(localStorage.getItem('devices')) || [];
@@ -113,13 +114,30 @@ const logout = () => {
     location.href = '/login';
 }
 
-$('#send-command').on('click', function () {
+
+$('#send-command').on('click', () => {
+    const deviceId = $('#deviceId').val();
     const command = $('#command').val();
-    console.log(`command is: ${command}`);
+    const body = {
+        deviceId,
+        command
+    };
+    $.post(`${MQTT_URL}/send-command`, body)
+    .then( () => {
+        location.href = '/';
+    })
+    .catch(err => {
+        console.log(`Error: ${err}`);
+    });
+
 });
 
 /** OUTDATED CODE BELOW, USE FOR REFERENCE ONLY */
 
+// $('#send-command').on('click', function () {
+//     const command = $('#command').val();
+//     console.log(`command is: ${command}`);
+// });
 // $('#register').on('click', () => {
 //     const user = $('#username').val();
 //     const password = $('#password').val();
